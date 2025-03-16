@@ -1,0 +1,129 @@
+Testing of CREATE API:
+URL : localhost:9191/rest/member
+HTTP Method : POST
+
+Scenario-1:When Password and Confirm Password are same
+Request:
+{
+    "membername": "Debadri Sarkar",
+    "memberemail": "debadrisarkar@gmail.com",
+    "membermobile": "1234567890",
+    "password": "^&85Fhg?)(&^",
+    "confirmpassword": "^&85Fhg?)(&^",
+    "gender": "M"
+}
+Response:
+{
+    "status": "1",
+    "message": "Successfully Registered"
+}
+
+Scenario-2:When Password and Confirm Password are not same
+Request:
+{
+    "membername": "Debadri Sarkar",
+    "memberemail": "debadrisarkar@gmail.com",
+    "membermobile": "1234567890",
+    "password": "^&85Fhg?)(&^",
+    "confirmpassword": "^&85Fhg?)(&1",
+    "gender": "M"
+}
+Response:
+{
+    "status": "0",
+    "message": "Password and confirm password are not same"
+}
+
+------------------------
+Testing of READ API:
+URL:localhost:9191/rest/memberall
+HTTP Method:GET
+
+Scenario-1:When records are there
+Response:
+{
+    "message": "Success",
+    "status": "1",
+    "members": [
+        {
+            "memberid": 26,
+            "membername": "Debadri Sarkar",
+            "memberemail": "debadrisarkar@rediffmail.com",
+            "membermobile": "1234567890",
+            "password": "^&85Fhg?)(&^",
+            "gender": "M"
+        }
+    ]
+}
+
+Scenario-2:When there is not records
+Response:
+{
+    "message": "Empty List",
+    "status": "0",
+    "members": []
+}
+--------------------
+Testing of UPDATE API:
+
+HTTP Method:PUT
+
+Scenario-1:
+Member updated successfully
+URL: localhost:9191/rest/memberupdate/?memberid=26
+Request:
+{
+    "membername": "Debadri Sarkar",
+    "memberemail": "debadrisarkar@hotmail.com",
+    "membermobile": "1234567890",
+    "password": "^&85Fhg?)(&^",
+    "gender": "M"
+}
+
+Response:
+{
+    "status": "1",
+    "message": "Updated successfully"
+}
+
+
+--------------------------------------------------------------
+Scenario-2:
+Member not found
+URL: localhost:9191/rest/memberupdate/?memberid=24
+Request:
+{
+    "membername": "Debadri Sarkar",
+    "memberemail": "debadrisarkar@hotmail.com",
+    "membermobile": "1234567890",
+    "password": "^&85Fhg?)(&^",
+    "gender": "M"
+}
+
+Response:
+{
+    "message": "Wrong Credentials or Member does not exist!!",
+    "status": "0",
+    "dateTime": "2025-03-14T13:53:23.2660782"
+}
+---------------------
+Testing of DELETE API:
+HTTP Method : DELETE
+
+URL:localhost:9191/rest/memberdelete/28
+
+Scenario-1:Member is deleted successfully
+Response:
+{
+    "message": "Deleted Successfully",
+    "status": "1"
+}
+
+
+Scenario-2:Member is not found
+Response:
+{
+    "message": "Wrong Credentials or Member does not exist!!",
+    "status": "0",
+    "dateTime": "2025-03-15T15:35:49.0236961"
+}

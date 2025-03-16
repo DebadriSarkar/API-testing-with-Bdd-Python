@@ -4,8 +4,8 @@ Feature: API Automation
   @TEST_REGISTRATION_SUCCESS
   Scenario: Successfull Member Registration
     When : We call "POST" method for Member Registration with endpoint "member"
-       | MemberName     | MemberEmail                 | MemberMobile | Password     | ConfirmPassword | Gender |
-       | Debadri Sarkar | debadrisarkar2017@gmail.com | 8697672001   | ^&85Fhg?)(&^ | ^&85Fhg?)(&^    | M      |
+       | MemberName     | MemberEmail             | MemberMobile | Password     | ConfirmPassword | Gender |
+       | Debadri Sarkar | debadrisarkar@gmail.com | 1234567890   | ^&85Fhg?)(&^ | ^&85Fhg?)(&^    | M      |
     Then : Member verifies the status code is "200"
     And : Member verifies POST response body contains following information
       | Status| Message                 |
@@ -15,8 +15,8 @@ Feature: API Automation
   @TEST_REGISTRATION_FAILURE
   Scenario: Failure Member Registration
     When : We call "POST" method for Member Registration with endpoint "member"
-       | MemberName     | MemberEmail                 | MemberMobile | Password     | ConfirmPassword | Gender |
-       | Debadri Sarkar | debadrisarkar2017@gmail.com | 8697672001   | ^&85Fhg?)(&^ | ^&85Fhg?)(&1    | M      |
+       | MemberName     | MemberEmail             | MemberMobile | Password     | ConfirmPassword | Gender |
+       | Debadri Sarkar | debadrisarkar@gmail.com | 1234567890   | ^&85Fhg?)(&^ | ^&85Fhg?)(&1    | M      |
     Then : Member verifies the status code is "200"
     And : Member verifies POST response body contains following information
       | Status| Message                                    |
@@ -26,8 +26,8 @@ Feature: API Automation
   @TEST_UPDATE_SUCCESS
   Scenario: Member updated successfully
     When : We call "PUT" method for Member Update with endpoint "memberupdate/?memberid=35"
-       | MemberName     | MemberEmail                      | MemberMobile | Password       | Gender |
-       | Debadri Sarkar | debadrisarkar2017@rediffmail.com | 8697672001   | ^&85Fhg?)(&^   | M      |
+       | MemberName     | MemberEmail                  | MemberMobile | Password       | Gender |
+       | Debadri Sarkar | debadrisarkar@rediffmail.com | 1234567890   | ^&85Fhg?)(&^   | M      |
     Then : Member verifies the status code is "200"
     And : Member verifies PUT response body contains following information
       | Status| Message              |
@@ -37,8 +37,8 @@ Feature: API Automation
   @TEST_UPDATE_FAILURE
   Scenario: Member not exist
     When : We call "PUT" method for Member Update with endpoint "memberupdate/?memberid=6"
-       | MemberName     | MemberEmail                      | MemberMobile | Password       | Gender |
-       | Debadri Sarkar | debadrisarkar2017@rediffmail.com | 8697672001   | ^&85Fhg?)(&^   | M      |
+       | MemberName     | MemberEmail                  | MemberMobile | Password       | Gender |
+       | Debadri Sarkar | debadrisarkar@rediffmail.com | 1234567890   | ^&85Fhg?)(&^   | M      |
     Then : Member verifies the status code is "404"
     And : Member verifies PUT response body contains following information
       | Status| Message                                      |
